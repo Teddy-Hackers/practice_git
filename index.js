@@ -2,7 +2,6 @@ const lib = require('common');
 
 module.exports.check = function check(username, token, callback) {
   lib.github_api_get('https://api.github.com/repos/' + username + '/practice_git', token, (repo) => {
-    console.log(repo);
     callback([{
       "name": "0_repository",
       "html_url": "",
