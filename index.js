@@ -5,12 +5,13 @@ module.exports.check = function check(username, token, callback) {
   var url = 'https://api.github.com/repos/' + username + '/practice_git';
   var test_branch_name = 'my_new_branch';
   var num = 0;
-  var num_tasks = 4;
+  var num_tasks = 5;
 
   function add_task(name, test) {
     var id = results.length;
     results.push({
       'name': name,
+      'description': 'docs/' + name + '.md',
       'html_url': 'https://github.com/Teddy-Hackers/practice_git/blob/master/docs/' + name + '.md',
       'status': 'neutral'
     });
@@ -73,5 +74,11 @@ module.exports.check = function check(username, token, callback) {
       }
       passed(is_merged);
     }, (err) => { passed(false); });
+  });
+
+// -----------------------------------------------------------------------------
+
+  add_task('aliases', function(passed) {
+    passed(false);
   });
 }
